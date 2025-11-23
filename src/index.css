@@ -14,3 +14,19 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@layer base {
+  h1 {
+    font-size: var(--text-4xl);
+  }
+  h2 {
+    font-size: var(--text-xl);
+  }
+  h3 {
+    font-size: var(--text-lg);
+  }
+  a {
+    color: var(--color-blue-600);
+    text-decoration-line: underline;
+  }
+}
