@@ -8,7 +8,7 @@ type Props = {
 
 const Card = ({ children, title, childrenClassName }: Props) => {
   return (
-    <div className="p-4 rounded-xl bg-zinc-900 shadow-md flex flex-col gap-4">
+    <div className="p-4 rounded-xl bg-linear-to-br from-card to-card/60  shadow-md flex flex-col gap-4">
       <h2>{title}</h2>
       <div className={childrenClassName}>{children}</div>
     </div>

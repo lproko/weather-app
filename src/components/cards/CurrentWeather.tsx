@@ -2,13 +2,16 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { getWeather } from "../../api";
 import Card from "./Card";
 import WeatherIcon from "./WeatherIcon";
+import type { Coords } from "../../type";
 
-type Props = {};
+type Props = {
+  coords: Coords;
+};
 
-const CurrentWeather = ({}: Props) => {
+const CurrentWeather = ({ coords }: Props) => {
   const { data } = useSuspenseQuery({
-    queryKey: ["weather"],
-    queryFn: () => getWeather({ lat: 10, long: 60 }),
+    queryKey: ["weather", coords],
+    queryFn: () => getWeather({ lat: coords.lat, long: coords.lon }),
   });
   return (
     <Card
@@ -29,7 +32,8 @@ const CurrentWeather = ({}: Props) => {
           hour: "2-digit",
           minute: "2-digit",
           hour12: false,
-        }).format(new Date(data?.current.dt * 1000))}{" "}
+          timeZone: data?.timezone,
+        }).format(new Date(data?.current.dt * 1000))}
       </h1>
       <div className="flex gap-4">
         <div>Hum : {Math.round(data?.current.humidity)}%</div>
