@@ -18,19 +18,19 @@ const SideCardSkeleton = () => {
           >
             <div className="flex justify-between ">
               <div className="flex items-center gap-2">
-                <Skeleton className="w-8 h-5" />{" "}
-                <Skeleton className="w-8 h-5" />
+                <Skeleton className="w-8 h-5 bg-sidebar" />{" "}
+                <Skeleton className="w-8 h-5 bg-sidebar" />
               </div>
-              <Skeleton className="w-8 h-5" />
+              <Skeleton className="w-8 h-5 bg-sidebar " />
             </div>
-            <Skeleton className="w-8 h-5" />
+            <Skeleton className="w-full h-5 bg-sidebar" />
             <div className="flex justify-between text-xs">
-              <Skeleton className="w-8 h-5" />
-              <Skeleton className="w-8 h-5" />
+              <Skeleton className="w-8 h-5 bg-sidebar" />
+              <Skeleton className="w-8 h-5 bg-sidebar" />
             </div>
             <div className="flex justify-between ">
               {Array.from({ length: 5 }).map((_, idx) => {
-                return <Skeleton className="w-8 h-5" />;
+                return <Skeleton key={idx} className="w-8 h-5 bg-sidebar" />;
               })}
             </div>
           </Card>

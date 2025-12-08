@@ -14,7 +14,10 @@ const DailyForecast = ({ coords }: Props) => {
   });
 
   return (
-    <Card title="Daily Forecast" childrenClassName="flex flex-col gap-4">
+    <Card
+      title="Daily Forecast"
+      childrenClassName="flex flex-col gap-5  md:mb-2.5 justify-between"
+    >
       {data?.daily.map((day) => (
         <div key={day.dt} className="flex justify-between">
           <p className="w-9">

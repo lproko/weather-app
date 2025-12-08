@@ -20,7 +20,10 @@ const HourlyForecast = ({ coords }: Props) => {
       childrenClassName="flex p-2 gap-6 overflow-x-scroll"
     >
       {data?.hourly.map((hours) => (
-        <div key={hours.dt} className="flex flex-col gap-2 items-center p-2">
+        <div
+          key={hours.dt}
+          className="flex flex-col gap-2 items-center p-2 justify-between"
+        >
           <div>
             {new Date(hours.dt * 1000).toLocaleTimeString(undefined, {
               hour: "2-digit",

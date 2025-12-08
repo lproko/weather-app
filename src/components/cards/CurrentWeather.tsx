@@ -15,7 +15,7 @@ const CurrentWeather = ({ coords }: Props) => {
   });
   return (
     <Card
-      childrenClassName="flex flex-col gap-6 items-center"
+      childrenClassName="flex flex-col gap-6 items-center justify-between"
       title="Current Weather"
     >
       <h1 className="text-6xl font-semibold items-center">
@@ -35,10 +35,17 @@ const CurrentWeather = ({ coords }: Props) => {
           timeZone: data?.timezone,
         }).format(new Date(data?.current.dt * 1000))}
       </h1>
-      <div className="flex gap-4">
-        <div>Hum : {Math.round(data?.current.humidity)}%</div>
-        <div> Feels Like: {Math.round(data?.current.feels_like)}°C</div>
-        <div> Wind: {Math.round(data?.current.wind_speed)} km/h</div>
+      <div className="flex w-full flex-col gap-1">
+        <div className="flex justify-between gap-4 text-gray-500/75">
+          <div>Hum </div>
+          <div> Feels Like </div>
+          <div> Wind </div>
+        </div>
+        <div className="flex justify-between gap-4 ">
+          <div>{Math.round(data?.current.humidity)}%</div>
+          <div> {Math.round(data?.current.feels_like)}°C</div>
+          <div> {Math.round(data?.current.wind_speed)} km/h</div>
+        </div>
       </div>
     </Card>
   );

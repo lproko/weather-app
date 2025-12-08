@@ -21,12 +21,12 @@ const SidePanel = (props: Props) => {
   return (
     <div
       className={clsx(
-        "fixed top-0 right-0 h-screen w-90 shadow-md bg-sidebar z-1001 py-8 px-4 overflow-y-auto transition-transform duration-300",
+        "fixed top-0 right-0 h-screen w-(--sidebar-width) shadow-md bg-sidebar z-1001 py-8 px-4 overflow-y-auto transition-transform duration-300 lg:translate-x-0!",
         isSidePanelOpen ? "translate-x-0" : "translate-x-full"
       )}
     >
       <button onClick={() => setIsSidePanelOpen(false)}>
-        <LeftIcon className="size-8 invert -ml-2" />
+        <LeftIcon className="size-8 invert -ml-2 lg:hidden" />
       </button>
       <Suspense fallback={<SideCardSkeleton />}>
         <AirPollution coord={props.coords} />
